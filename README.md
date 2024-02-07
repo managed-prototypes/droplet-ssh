@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - [terraform](https://developer.hashicorp.com/terraform/install)
-- [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (for S3 support?)
+- [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (for TF S3 backend support)
 - Have team on DO
 - Add an SSH key to DO team, name it `terraform`
 - Add a PAT token to the team, with write access

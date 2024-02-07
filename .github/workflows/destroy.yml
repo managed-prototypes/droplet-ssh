@@ -1,0 +1,13 @@
+name: Destroy
+
+on:
+  # Allow to run manually
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Destroy
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
