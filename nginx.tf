@@ -11,7 +11,7 @@ resource "digitalocean_droplet" "terraform-digitalocean-nginx" {
     host = self.ipv4_address
     user = "root"
     type = "ssh"
-    private_key = file(var.do_ssh_pvt_key)
+    private_key = var.do_ssh_pvt_key
     timeout = "2m"
   }
   
