@@ -30,7 +30,7 @@ AWS_PROFILE=managed_prototypes \
 AWS_PROFILE=managed_prototypes \
   terraform plan \
   -var "do_pat=xxx" \
-  -var "do_ssh_pvt_key=$HOME/.ssh/id_ed25519"
+  -var "do_ssh_pvt_key=$HOME/.ssh/managed_prototypes"
 ```
 
 - Apply
@@ -40,7 +40,7 @@ AWS_PROFILE=managed_prototypes \
   terraform apply \
   -auto-approve \
   -var "do_pat=xxx" \
-  -var "do_ssh_pvt_key=$HOME/.ssh/id_ed25519"
+  -var "do_ssh_pvt_key=$HOME/.ssh/managed_prototypes"
 ```
 
 - Check
@@ -57,7 +57,7 @@ AWS_PROFILE=managed_prototypes \
   terraform destroy \
   -auto-approve \
   -var "do_pat=xxx" \
-  -var "do_ssh_pvt_key=$HOME/.ssh/id_ed25519"
+  -var "do_ssh_pvt_key=$HOME/.ssh/managed_prototypes"
 ```
 
 ## Reference articles
