@@ -12,19 +12,26 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Configure AWS Credentials (for Terraform S3 backend)
-        uses: aws-actions/configure-aws-credentials@v4
-        # env:
-        #   AWS_DEFAULT_REGION:
-        #   AWS_REGION:
-        #   AWS_ACCESS_KEY_ID:
-        #   AWS_SECRET_ACCESS_KEY:
-        #   AWS_SESSION_TOKEN:
-        with:
-          aws-access-key-id: ${{ secrets.DO_S3_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.DO_S3_SECRET_KEY }}
-          aws-region: us-east-1 # doesn't matter for DigitalOcean, required by AWS GH action
-          role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test # whatever, role pole
+      # - name: Configure AWS Credentials (for Terraform S3 backend)
+      #   # uses: aws-actions/configure-aws-credentials@v4
+      #   env:
+      #     # AWS_DEFAULT_REGION: 
+      #     AWS_REGION: us-east-1 # doesn't matter for DigitalOcean, required by AWS GH action
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.DO_S3_ACCESS_KEY }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.DO_S3_SECRET_KEY }}
+      #     # AWS_SESSION_TOKEN:
+      #   run: |
+      #     aws configure --profile abc
+          
+        # with:
+        #   aws-access-key-id: ${{ secrets.DO_S3_ACCESS_KEY }}
+        #   aws-secret-access-key: ${{ secrets.DO_S3_SECRET_KEY }}
+        #   aws-region: us-east-1 # doesn't matter for DigitalOcean, required by AWS GH action
+        #   role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test # whatever, role pole
 
       - name: Test S3 access
+        env:
+          # AWS_REGION: us-east-1 # doesn't matter for DigitalOcean, required by AWS GH action
+          AWS_ACCESS_KEY_ID: ${{ secrets.DO_S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DO_S3_SECRET_KEY }}
         run: aws s3 ls --endpoint=https://managed-prototypes.ams3.digitaloceanspaces.com
