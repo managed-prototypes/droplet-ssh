@@ -10,12 +10,13 @@ terraform {
     endpoints = {
       s3 = "https://ams3.digitaloceanspaces.com"
     }
-    key    = "terraform.tfstate"
-    bucket = "managed-prototypes"
-    region = "us-east-1" # Incorrect for DO, but the field is required by TF
+    key                         = "terraform.tfstate"
+    bucket                      = "managed-prototypes"
+    region                      = "us-east-1" # Incorrect for DO, but the field is required by TF
     skip_requesting_account_id  = true
     skip_credentials_validation = true
-    skip_metadata_api_check = true
+    skip_metadata_api_check     = true
+    skip_s3_checksum            = true
   }
 }
 
