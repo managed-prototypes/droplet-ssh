@@ -1,21 +1,20 @@
 # Development
 
-## Prerequisites
+## Prerequisites for local run
 
 - [terraform](https://developer.hashicorp.com/terraform/install)
 - [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (for TF S3 backend support)
-- Have team on DO
-- Add an SSH key to DO team, name it `terraform`
-- Add a PAT token to the team, with write access
-- Have a place to store the `terraform.tfstate` and `terraform.tfstate.backup`
-
-## Run
-
 - Configure AWS cli
 
-```sh
-aws configure --profile managed_prototypes
-```
+      ```sh
+      aws configure --profile managed_prototypes
+      ```
+
+- Add an SSH key to DO team as `~/.ssh/managed_prototypes`
+- Get the `local.tfvars` file with DO PAT token to the team (with write access)
+- Use `zsh` or `bash`, but not `fish`
+
+## Run (local)
 
 - Init
 
@@ -27,37 +26,38 @@ AWS_PROFILE=managed_prototypes \
 - Plan
 
 ```sh
-AWS_PROFILE=managed_prototypes \
+TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes) \
+  AWS_PROFILE=managed_prototypes \
   terraform plan \
-  -var "do_pat=xxx" \
-  -var "do_ssh_pvt_key=$HOME/.ssh/managed_prototypes"
+  -var-file="local.tfvars"
 ```
 
 - Apply
 
 ```sh
-AWS_PROFILE=managed_prototypes \
+TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes) \
+  AWS_PROFILE=managed_prototypes \
   terraform apply \
   -auto-approve \
-  -var "do_pat=xxx" \
-  -var "do_ssh_pvt_key=$HOME/.ssh/managed_prototypes"
+  -var-file="local.tfvars"
 ```
 
 - Check
 
 ```sh
-terraform show terraform.tfstate
+AWS_PROFILE=managed_prototypes \
+  terraform show
 ```
 
 - And look for `ipv4_address` in the output.
 - Destroy
 
 ```sh
-AWS_PROFILE=managed_prototypes \
+TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes) \
+  AWS_PROFILE=managed_prototypes \
   terraform destroy \
   -auto-approve \
-  -var "do_pat=xxx" \
-  -var "do_ssh_pvt_key=$HOME/.ssh/managed_prototypes"
+  -var-file="local.tfvars"
 ```
 
 ## Reference articles
