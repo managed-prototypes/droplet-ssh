@@ -20,7 +20,7 @@ plan:
     -var-file="local.tfvars"
 
 # Apply (deploy)
-deploy:
+apply:
   #!/bin/sh
   set -eu
   TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes) \

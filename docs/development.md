@@ -32,7 +32,7 @@ just plan
 - Deploy (apply the configuration)
 
 ```sh
-just deploy
+just apply
 ```
 
 - Check the result
