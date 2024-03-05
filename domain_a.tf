@@ -1,6 +1,6 @@
 resource "digitalocean_record" "a_record" {
   domain = "prototyping.quest"
   type = "A"
-  name = "test"
+  name = "terraform-digitalocean"
   value = digitalocean_loadbalancer.lb.ip
 }
