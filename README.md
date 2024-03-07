@@ -9,5 +9,5 @@
 ## Deployment
 
 - Trigger the `Deploy` workflow manually
-- Test
+- Test: http://terraform-digitalocean.prototyping.quest
 - Trigger the `Destroy` workflow manually. Wait for it to succeed.
