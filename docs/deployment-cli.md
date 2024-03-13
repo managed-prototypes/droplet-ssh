@@ -1,6 +1,6 @@
-# Development
+# Deployment via CLI
 
-## Prerequisites for local run
+## Prerequisites
 
 - [terraform](https://developer.hashicorp.com/terraform/install)
 - [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (for TF S3 backend support)
@@ -15,41 +15,18 @@
 - Just (for running commands)
   - `brew install just`
 
-## Run (local)
-
-- Init
+## Usage
 
 ```sh
-just init
+just terraform/init
+
+just terraform/plan
+
+just terraform/apply
+
+just terraform/show
+
+just terraform/destroy
 ```
 
-- Plan
-
-```sh
-just plan
-```
-
-- Deploy (apply the configuration)
-
-```sh
-just apply
-```
-
-- Check the result
-
-  - And look for `ipv4_address` in the output.
-
-```sh
-just show
-```
-
-- Destroy
-
-```sh
-just destroy
-```
-
-## Reference articles
-
-- https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/to-team/
-- https://www.digitalocean.com/community/tutorials/how-to-use-terraform-with-digitalocean
+- Open http://web-droplet.prototyping.quest

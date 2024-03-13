@@ -1,13 +1,10 @@
-# terraform-digitalocean
+# web-droplet
 
-- [Development](docs/development.md)
+- [Design](docs/design.md)
+- [Deployment via GitHub Actions](docs/deployment-github-actions.md)
+- [Deployment via CLI](docs/deployment-cli.md)
 
-## Goals
+## What does this example demonstrate
 
 - Create and destroy infrastructure on DigitalOcean using Terraform and GH Actions
 
-## Deployment
-
-- Trigger the `Deploy` workflow manually
-- Test: http://terraform-digitalocean.prototyping.quest
-- Trigger the `Destroy` workflow manually. Wait for it to succeed.
