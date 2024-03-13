@@ -20,13 +20,11 @@
 ```sh
 just terraform/init
 
-just terraform/plan
-
 just terraform/apply
 
-just terraform/show
-
 just terraform/destroy
+
+just # List all commands
 ```
 
 - Open http://web-droplet.prototyping.quest
