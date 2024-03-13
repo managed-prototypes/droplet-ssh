@@ -10,7 +10,7 @@ terraform {
     endpoints = {
       s3 = "https://ams3.digitaloceanspaces.com"
     }
-    # Specified here, because function calls and variables are not allowed for this configuration
+    # Note: Specified here, because function calls and variables are not allowed for this configuration
     key                         = "terraform/web-droplet/terraform.tfstate"
     bucket                      = "managed-prototypes"
     region                      = "us-east-1" # Incorrect for DO, but the field is required by TF

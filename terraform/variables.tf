@@ -7,6 +7,6 @@ variable "do_ssh_pvt_key" {
 }
 
 variable "application_name" {
-  # Will be used for DNS records, use hypens.
+  # Note: Will be used for DNS records, use hypens.
   default = "web-droplet"
 }
