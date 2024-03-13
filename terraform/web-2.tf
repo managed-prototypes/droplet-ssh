@@ -1,5 +1,5 @@
 resource "digitalocean_droplet" "web-2" {
-  image = "ubuntu-20-04-x64"
+  image = "ubuntu-23-10-x64"
   name = "web-2"
   region = "ams3"
   size = "s-1vcpu-1gb"

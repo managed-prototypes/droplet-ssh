@@ -1,5 +1,6 @@
 resource "digitalocean_droplet" "web-1" {
-  image = "ubuntu-20-04-x64"
+  # Note: The list of available versions can be found at https://cloud.digitalocean.com/droplets/new
+  image = "ubuntu-23-10-x64"
   name = "web-1"
   region = "ams3"
   size = "s-1vcpu-1gb"
