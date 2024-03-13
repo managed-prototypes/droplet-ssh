@@ -2,7 +2,7 @@ terraform {
   required_providers {
     digitalocean = {
       source  = "digitalocean/digitalocean"
-      version = "~> 2.0"
+      version = "~> 2.36"
     }
   }
 
@@ -10,6 +10,7 @@ terraform {
     endpoints = {
       s3 = "https://ams3.digitaloceanspaces.com"
     }
+    # Specified here, because function calls and variables are not allowed for this configuration
     key                         = "terraform/web-droplet/terraform.tfstate"
     bucket                      = "managed-prototypes"
     region                      = "us-east-1" # Incorrect for DO, but the field is required by TF
@@ -19,9 +20,6 @@ terraform {
     skip_s3_checksum            = true
   }
 }
-
-variable "do_pat" {}
-variable "do_ssh_pvt_key" {}
 
 provider "digitalocean" {
   token = var.do_pat
