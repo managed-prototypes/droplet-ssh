@@ -1,6 +1,6 @@
-resource "digitalocean_droplet" "terraform-digitalocean-nginx-2" {
+resource "digitalocean_droplet" "web-2" {
   image = "ubuntu-20-04-x64"
-  name = "terraform-digitalocean-nginx-2"
+  name = "web-2"
   region = "ams3"
   size = "s-1vcpu-1gb"
   ssh_keys = [

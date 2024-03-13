@@ -15,5 +15,5 @@ resource "digitalocean_loadbalancer" "lb" {
     protocol = "tcp"
   }
 
-  droplet_ids = [digitalocean_droplet.terraform-digitalocean-nginx.id, digitalocean_droplet.terraform-digitalocean-nginx-2.id ]
+  droplet_ids = [digitalocean_droplet.web-1.id, digitalocean_droplet.web-2.id ]
 }

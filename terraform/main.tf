@@ -10,7 +10,7 @@ terraform {
     endpoints = {
       s3 = "https://ams3.digitaloceanspaces.com"
     }
-    key                         = "terraform/terraform-digitalocean/terraform.tfstate"
+    key                         = "terraform/web-droplet/terraform.tfstate"
     bucket                      = "managed-prototypes"
     region                      = "us-east-1" # Incorrect for DO, but the field is required by TF
     skip_requesting_account_id  = true
