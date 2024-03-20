@@ -1,5 +1,6 @@
 variable "do_pat" {
   type = string
+  sensitive = true
 }
 
 variable "do_ssh_pvt_key" {
@@ -7,6 +8,7 @@ variable "do_ssh_pvt_key" {
 }
 
 variable "application_name" {
-  # Note: Will be used for DNS records, use hypens.
+  type = string
   default = "web-droplet"
+  description = "Will be used for DNS records, use hypens"
 }
