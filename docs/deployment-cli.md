@@ -27,4 +27,4 @@ just terraform/destroy
 just # List all commands
 ```
 
-- Open http://web-droplet.prototyping.quest
+- Open http://droplet-ssh.prototyping.quest

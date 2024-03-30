@@ -1,4 +1,4 @@
-# web-droplet
+# droplet-ssh
 
 ## Purpose
 
