@@ -1,20 +1,18 @@
 _default:
   @ just --list --unsorted
 
-# ------------------------- Deployment via CLI -------------------------
-
 # Init (fetch dependencies and state)
 init:
   #!/bin/sh
   set -eu
-  export AWS_PROFILE=managed_prototypes
+  export AWS_PROFILE=managed_prototypes_nonprod
   terraform init
 
 # Init + upgrade state
 init-upgrade:
   #!/bin/sh
   set -eu
-  export AWS_PROFILE=managed_prototypes
+  export AWS_PROFILE=managed_prototypes_nonprod
   terraform init -upgrade
 
 # Plan (dry run)
@@ -22,7 +20,7 @@ plan:
   #!/bin/sh
   set -eu
   export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes_nonprod)
-  export AWS_PROFILE=managed_prototypes
+  export AWS_PROFILE=managed_prototypes_nonprod
   terraform plan \
     -var-file="nonprod.tfvars"
 
@@ -31,7 +29,7 @@ apply:
   #!/bin/sh
   set -eu
   export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes_nonprod)
-  export AWS_PROFILE=managed_prototypes
+  export AWS_PROFILE=managed_prototypes_nonprod
   terraform apply \
     -auto-approve \
     -var-file="nonprod.tfvars"
@@ -41,7 +39,7 @@ destroy:
   #!/bin/sh
   set -eu
   export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes_nonprod)
-  export AWS_PROFILE=managed_prototypes
+  export AWS_PROFILE=managed_prototypes_nonprod
     terraform destroy \
     -auto-approve \
     -var-file="nonprod.tfvars"
@@ -50,5 +48,5 @@ destroy:
 show:
   #!/bin/sh
   set -eu
-  export AWS_PROFILE=managed_prototypes
+  export AWS_PROFILE=managed_prototypes_nonprod
   terraform show
