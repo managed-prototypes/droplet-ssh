@@ -7,7 +7,9 @@
 - Configure AWS cli, using the `acces key` and `secret key` from DO
 
   ```sh
-  aws configure --profile managed_prototypes
+  aws configure --profile managed_prototypes_nonprod
+
+  aws configure --profile managed_prototypes_prod
   ```
 
 - Add an SSH key to DO team as `~/.ssh/managed_prototypes_nonprod` (and `~/.ssh/managed_prototypes_prod`)
