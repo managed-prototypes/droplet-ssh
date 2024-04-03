@@ -1,4 +1,4 @@
-name: Destroy
+name: Deploy staging
 
 on:
   # Run when triggered manually
@@ -6,13 +6,13 @@ on:
 
 jobs:
   build:
-    name: Destroy
+    name: Deploy
     runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Terraform init and destroy
+      - name: Terraform init and apply
         working-directory: terraform
         env:
           AWS_REGION: us-east-1 # doesn't matter for DigitalOcean, but required for AWS cli to work
@@ -22,4 +22,4 @@ jobs:
           TF_VAR_do_ssh_pvt_key: ${{ secrets.DO_SSH_PVT_KEY_NONPROD }}
         run: |
           terraform init
-          terraform destroy -auto-approve
+          terraform apply -auto-approve
