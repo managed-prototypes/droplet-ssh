@@ -21,30 +21,30 @@ init-upgrade:
 plan:
   #!/bin/sh
   set -eu
-  export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes)
+  export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes_nonprod)
   export AWS_PROFILE=managed_prototypes
   terraform plan \
-    -var-file="local.tfvars"
+    -var-file="nonprod.tfvars"
 
 # Apply (deploy)
 apply:
   #!/bin/sh
   set -eu
-  export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes)
+  export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes_nonprod)
   export AWS_PROFILE=managed_prototypes
   terraform apply \
     -auto-approve \
-    -var-file="local.tfvars"
+    -var-file="nonprod.tfvars"
 
 # Destroy
 destroy:
   #!/bin/sh
   set -eu
-  export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes)
+  export TF_VAR_do_ssh_pvt_key=$(cat ~/.ssh/managed_prototypes_nonprod)
   export AWS_PROFILE=managed_prototypes
     terraform destroy \
     -auto-approve \
-    -var-file="local.tfvars"
+    -var-file="nonprod.tfvars"
 
 # Show the current state
 show:
